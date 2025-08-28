@@ -1,6 +1,3 @@
-Perfect — here’s the **fully GitHub-ready README.md** with all math rewritten in clean, plain-text/inline code formatting so it renders nicely without broken LaTeX.
-
----
 
 # EuroMillions Statistical Anomaly Detector
 
@@ -72,7 +69,7 @@ Even though lottery draws are designed to be random, biases can emerge from:
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/euromillions-anomaly-detector.git
+git clone https://github.com/NotABillionaire/EuroMillions-Counter.git
 cd euromillions-anomaly-detector
 ```
 
@@ -120,18 +117,4 @@ Results include frequency counts, plots, and statistical metrics.
 * Automate data ingestion from APIs for live updates
 * Generate anomaly reports in real time
 
----
 
-## Credits
-
-* Python for implementation
-* Pandas for dataset processing
-* Matplotlib for visualization
-* NumPy/Statsmodels for statistical testing
-* All contributors who support and improve this project
-
----
-
-This version will render perfectly on GitHub without broken LaTeX.
-
-Do you want me to generate this as a **`README.md` file you can drop directly into your repo**?
