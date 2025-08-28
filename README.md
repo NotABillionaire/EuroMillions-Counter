@@ -1,217 +1,137 @@
-🎲 EuroMillions Statistical Anomaly Detector
-
-This project investigates the statistical fairness of the EuroMillions lottery by analyzing historical draw data and comparing it with simulated “perfect randomness.” The central aim is to identify potential biases, irregularities, or anomalies that might arise from:
-
-Mechanical imperfections in draw machines
-
-Human error in ball handling and recording
-
-Deviations from theoretical probability distributions
-
-By applying principles from probability theory, statistics, and simulation, we test whether real-world lottery results conform to the Law of Large Numbers and expected uniform distributions.
-
-📂 Project Files
-
-euromillions_counter.py
-Counts how many times each EuroMillions number has been drawn historically.
-
-Parses euro_millions_past_results.txt (full draw history).
-
-Uses Counter to tally number frequencies.
-
-Plots actual frequencies across balls 1–50 and stars 1–12.
-
-fake_euromillions.py
-Simulates a large number of “ideal” EuroMillions draws using Python’s RNG.
-
-Generates 9,345 random draws (matching dataset size).
-
-Tallies and plots simulated frequencies.
-
-Provides a benchmark to compare against real-world draws.
-
-📊 Theoretical Background
-1. Law of Large Numbers (LLN)
-
-As the number of draws → ∞, the frequency of each ball approaches equal probability:
-
-𝑃
-(
-main ball
-)
-=
-5
-50
-=
-0.1
-P(main ball)=
-50
-5
-	​
-
-=0.1
-𝑃
-(
-lucky star
-)
-=
-2
-12
-≈
-0.1667
-P(lucky star)=
-12
-2
-	​
-
-≈0.1667
-
-For ~9,300 draws, the expected occurrences are:
-
-Each main number ≈ 
-9
-,
-300
-×
-0.1
-=
-930
-9,300×0.1=930 appearances.
+Perfect — here’s the **fully GitHub-ready README.md** with all math rewritten in clean, plain-text/inline code formatting so it renders nicely without broken LaTeX.
 
-Each lucky star ≈ 
-9
-,
-300
-×
-0.1667
-≈
-1550
-9,300×0.1667≈1550 appearances.
+---
 
-2. Chi-Square Test for Uniformity
+# EuroMillions Statistical Anomaly Detector
 
-We measure whether observed frequencies differ significantly from expected frequencies:
+This project investigates the statistical fairness of the EuroMillions lottery by analyzing historical draw data and comparing it with simulated random draws. The goal is to identify potential biases, irregularities, or anomalies that may result from human or mechanical error in the drawing process.
 
-𝜒
-2
-=
-∑
-(
-𝑂
-𝑖
-−
-𝐸
-𝑖
-)
-2
-𝐸
-𝑖
-χ
-2
-=∑
-E
-i
-	​
+It is not a prediction tool, but a framework for testing randomness and applying statistical forensics to large-scale lottery data.
 
-(O
-i
-	​
+---
 
-−E
-i
-	​
+## Disclaimer
 
-)
-2
-	​
+This software is intended for research and educational purposes only. It demonstrates practical applications of probability theory and statistics in detecting anomalies in data that should, by design, be random.
 
+* No guarantee of prediction or financial gain is implied.
+* The project is not affiliated with EuroMillions or any lottery operator.
+* Users are expected to apply the software responsibly, legally, and ethically.
+* We are not responsible for end-user actions, misuse, or gambling behavior.
 
-𝑂
-𝑖
-O
-i
-	​
+By using this software, you acknowledge these terms and commit to using it for responsible research or educational purposes.
 
- = observed count of ball 
-𝑖
-i
+---
 
-𝐸
-𝑖
-E
-i
-	​
+## Features
 
- = expected count of ball 
-𝑖
-i
+* Frequency analysis of historical EuroMillions results
+* Simulation of large-scale random draws for benchmarking
+* Chi-Square test for statistical fairness
+* Monte Carlo simulation to evaluate variance in truly random systems
+* Visualization of real vs simulated results
+* Identification of underperforming and overperforming numbers relative to expectation
 
-If 
-𝜒
-2
-χ
-2
- exceeds critical values, distribution may not be random.
+---
 
-3. Monte Carlo Simulation
+## Theoretical Background
 
-The script fake_euromillions.py simulates thousands of draws.
+**Law of Large Numbers (LLN)**
+As the number of draws increases, the frequency of each ball approaches its theoretical probability. For EuroMillions:
 
-Provides a “control” dataset.
+* Main numbers: 5 selections from 50 → expected probability per ball = `5/50 = 0.1`
+* Lucky Stars: 2 selections from 12 → expected probability per star ≈ `2/12 = 0.1667`
 
-Helps estimate the range of natural fluctuations in random systems.
+**Chi-Square Test**
+A statistical test to measure deviation from expected uniformity:
 
-Real results outside this range may indicate systematic bias.
+```
+χ² = Σ ( (Oi - Ei)² / Ei )
+```
 
-4. Potential Sources of Bias
+Where:
 
-Even though lotteries are designed to be random, physical or human factors can introduce irregularities:
+* `Oi` = observed frequency of number i
+* `Ei` = expected frequency of number i
 
-Slight differences in ball weight or wear.
+**Monte Carlo Simulation**
+Simulated draws provide a control dataset representing ideal randomness. Comparing real data against simulated results highlights potential irregularities.
 
-Uneven airflow or mechanics in draw machines.
+**Sources of Bias**
+Even though lottery draws are designed to be random, biases can emerge from:
 
-Loading procedures or operational errors.
+* Manufacturing tolerances of balls (weight, size, wear)
+* Mechanical quirks of machines (airflow, turbulence, paddles)
+* Human error in ball loading or recording
+* Procedural inconsistencies or oversight
 
-Recording or publishing mistakes.
+---
 
-🚀 Workflow
+## Installation
 
-Load real historical results from euro_millions_past_results.txt.
+Clone the repository:
 
-Count frequencies of each ball and star.
+```bash
+git clone https://github.com/yourusername/euromillions-anomaly-detector.git
+cd euromillions-anomaly-detector
+```
 
-Run simulations to establish expected uniform distributions.
+Install dependencies:
 
-Compare observed vs expected with statistical tests and visualizations.
+```bash
+pip install -r requirements.txt
+```
 
-Flag anomalies that deviate beyond random variance.
+---
 
-📈 Example Outputs
+## Usage
 
-Frequency plots of numbers 1–50.
+Run analysis on historical EuroMillions results:
 
-Comparison bar charts: real vs simulated.
+```bash
+python euromillions_counter.py
+```
 
-Chi-square statistics and p-values.
+Simulate random draws to establish a baseline:
 
-🎯 Goal
+```bash
+python fake_euromillions.py
+```
 
-This project does not aim to predict future lottery results (which are theoretically random).
-Instead, it seeks to:
+Results include frequency counts, plots, and statistical metrics.
 
-Detect systematic biases or statistical anomalies.
+---
 
-Investigate whether mechanical or human imperfections skew outcomes.
+## Example Outputs
 
-Provide a reproducible methodology for lottery forensics.
+* Frequency distribution of each ball (1–50) and Lucky Star (1–12)
+* Side-by-side comparisons of real vs simulated data
+* Identification of statistically significant deviations
+* Chi-square statistics with p-values
+* Plots showing “hot” and “cold” numbers relative to expectation
 
-🔧 Future Work
+---
 
-Extend analysis to Lucky Stars.
+## Roadmap
 
-Apply Kolmogorov–Smirnov (KS) tests for distribution comparison.
+* Extend analysis to Lucky Stars in more depth
+* Add yearly drift and anomaly trend plots
+* Implement Kolmogorov–Smirnov (KS) tests for distribution distance
+* Automate data ingestion from APIs for live updates
+* Generate anomaly reports in real time
 
-Build anomaly heatmaps over time (yearly drift).
+---
 
-Automate with APIs to update after every draw.
+## Credits
+
+* Python for implementation
+* Pandas for dataset processing
+* Matplotlib for visualization
+* NumPy/Statsmodels for statistical testing
+* All contributors who support and improve this project
+
+---
+
+This version will render perfectly on GitHub without broken LaTeX.
+
+Do you want me to generate this as a **`README.md` file you can drop directly into your repo**?
