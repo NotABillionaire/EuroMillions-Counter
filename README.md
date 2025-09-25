@@ -1,5 +1,5 @@
 
-# EuroMillions Statistical Anomaly Detector
+# EuroMillions Statistical Detector
 
 This project investigates the statistical fairness of the EuroMillions lottery by analyzing historical draw data and comparing it with simulated random draws. The goal is to identify potential biases, irregularities, or anomalies that may result from human or mechanical error in the drawing process.
 
