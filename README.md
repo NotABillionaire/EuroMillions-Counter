@@ -64,23 +64,6 @@ Even though lottery draws are designed to be random, biases can emerge from:
 
 ---
 
-## Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/NotABillionaire/EuroMillions-Counter.git
-cd euromillions-anomaly-detector
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
 ## Usage
 
 Run analysis on historical EuroMillions results:
@@ -98,23 +81,4 @@ python fake_euromillions.py
 Results include frequency counts, plots, and statistical metrics.
 
 ---
-
-## Example Outputs
-
-* Frequency distribution of each ball (1–50) and Lucky Star (1–12)
-* Side-by-side comparisons of real vs simulated data
-* Identification of statistically significant deviations
-* Chi-square statistics with p-values
-* Plots showing “hot” and “cold” numbers relative to expectation
-
----
-
-## Roadmap
-
-* Extend analysis to Lucky Stars in more depth
-* Add yearly drift and anomaly trend plots
-* Implement Kolmogorov–Smirnov (KS) tests for distribution distance
-* Automate data ingestion from APIs for live updates
-* Generate anomaly reports in real time
-
 
